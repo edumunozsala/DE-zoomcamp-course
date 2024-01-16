@@ -10,6 +10,8 @@ services:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
+    networks:
+      - pg-network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -19,4 +21,11 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "8080:80"
+    networks:
+      - pg-network
+    depends_on:
+      - pgdatabase
+  
+networks:
+  pg-network:
 
