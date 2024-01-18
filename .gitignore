@@ -2,3 +2,7 @@
 ny_taxi_postgres_data/
 data/
 *.csv
+*.gz
+
+# GCP credentials
+gcp-credentials/
