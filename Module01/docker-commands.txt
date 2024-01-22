@@ -38,7 +38,7 @@ docker run -it \
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-09.csv.gz"
 
 docker run -it \
-  --network=de-zoomcamp-course_pg-network \
+  --network=module01_pg-network \
   taxi_ingest:v001 \
     --user=root \
     --password=root \
