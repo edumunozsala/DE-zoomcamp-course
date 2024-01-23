@@ -1,12 +1,12 @@
-# DE-zoomcamp-course
+# Data Engineering Zoomcamp Course 2024
 
-Repo for tasks and homeworks for the Data Engineering Zoomcamp course Cohort 2024
+Repo for tasks and homeworks in the Data Engineering Zoomcamp course Cohort 2024
 
 ### Repo still in progress
 
 ## Content
 
-# Module 1: Containerization and Infrastructure as Code
+## [Module 1: Containerization and Infrastructure as Code](Module01/)
 
 - Introduction to GCP
 - Docker and docker-compose
@@ -16,7 +16,7 @@ Repo for tasks and homeworks for the Data Engineering Zoomcamp course Cohort 202
 - Introduction to Terraform
 - Setting up infrastructure on GCP with Terraform
 
-# License
+## License
 
 Copyright 2023 Eduardo Muñoz
 
