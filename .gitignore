@@ -3,6 +3,8 @@ ny_taxi_postgres_data/
 data/
 *.csv
 *.gz
+# mage repo
+mage-zoomcamp/
 
 # Local .terraform directories
 **/.terraform/*
@@ -42,3 +44,4 @@ terraform.rc
 # GCP
 google-cloud-sdk/
 gcp-credentials/
+my-creds.json
