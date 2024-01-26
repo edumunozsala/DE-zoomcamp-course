@@ -3,8 +3,6 @@ ny_taxi_postgres_data/
 data/
 *.csv
 *.gz
-# mage repo
-mage-zoomcamp/
 
 # Local .terraform directories
 **/.terraform/*
