@@ -11,7 +11,7 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/src/my-creds.json"
 bucket_name="mage-zoomcamp-ems"
 project_id="banded-pad-411315"
 
-table_name="nyc_green_taxi_data"
+table_name="nyc_green_taxi_data.parquet"
 root_path= f'{bucket_name}/{table_name}'
 
 
