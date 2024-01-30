@@ -8,7 +8,9 @@ if 'test' not in globals():
 
 
 def remove_rows(df: DataFrame) -> DataFrame:
+    # Remove rows with passangers <= 0
     df = df[df['passenger_count']>0]
+    # Remove rows with trip distance <= 0
     df = df[df['trip_distance']>0]
 
     return df
@@ -49,3 +51,4 @@ def test_output(df) -> None:
     assert df is not None, 'The output is undefined'
     assert len(df[df['passenger_count']<=0]) == 0, 'Passenger column has values lower than 0'
     assert len(df[df['trip_distance']<=0]) == 0, 'Trip distance column has values lower than 0'
+    #assert len(df[df['vendor_id'] not in (1, 2)]) == 0, 'Vendor id column has invalid values'

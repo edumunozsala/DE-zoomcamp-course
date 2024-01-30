@@ -8,7 +8,7 @@ if 'data_exporter' not in globals():
     from mage_ai.data_preparation.decorators import data_exporter
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/src/my-creds.json"
-bucket_name="mage-zoomcamp-ems"
+bucket_name="mage-dezoomcamp-ems"
 project_id="banded-pad-411315"
 
 table_name="nyc_green_taxi_data.parquet"
