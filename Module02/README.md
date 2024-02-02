@@ -13,14 +13,14 @@ Mage is an open-source, hybrid framework for transforming and integrating data. 
 
 This week, you'll learn how to use the Mage platform to author and share magical data pipelines. This will all be covered in the course, but if you'd like to learn a bit more about Mage, check out our docs here.
 
-2.2.1 - 📯 Intro to Orchestration
-2.2.2 - 🧙‍♂️ Intro to Mage
-2.2.3 - 🐘 ETL: API to Postgres
-2.2.4 - 🤓 ETL: API to GCS
-2.2.5 - 🔍 ETL: GCS to BigQuery
-2.2.6 - 👨‍💻 Parameterized Execution
-2.2.7 - 🤖 Deployment (Optional)
-2.2.8 - 🧱 Advanced Blocks (Optional)
+- 2.2.1 - 📯 Intro to Orchestration
+- 2.2.2 - 🧙‍♂️ Intro to Mage
+- 2.2.3 - 🐘 ETL: API to Postgres
+- 2.2.4 - 🤓 ETL: API to GCS
+- 2.2.5 - 🔍 ETL: GCS to BigQuery
+- 2.2.6 - 👨‍💻 Parameterized Execution
+- 2.2.7 - 🤖 Deployment (Optional)
+- 2.2.8 - 🧱 Advanced Blocks (Optional)
 
 ## Run Mage in a docker container
 
@@ -39,7 +39,7 @@ Now, navigate to http://localhost:6789 in your browser! Voila! You're ready to g
 
 ## What this folder contains?
 
-In the folder Module02/my-mage-code, you cand find the Mage blocks I've created to complete the homework and some others I've built to test Mage functionalities (some of them are still in progress).
+In the folder **Module02/my-mage-code**, you cand find the Mage blocks I've created to complete the homework and some others I've built to test Mage functionalities (some of them are still in progress).
 
 
 # License
