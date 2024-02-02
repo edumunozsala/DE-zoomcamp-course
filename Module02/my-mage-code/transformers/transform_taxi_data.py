@@ -49,6 +49,7 @@ def test_output(df) -> None:
     Template code for testing the output of the block.
     """
     assert df is not None, 'The output is undefined'
+    assert sum(df['vendor_id'].isin([1,2]))==len(df['vendor_id']), 'Vendor Id column has invalid values'
     assert len(df[df['passenger_count']<=0]) == 0, 'Passenger column has values lower than 0'
     assert len(df[df['trip_distance']<=0]) == 0, 'Trip distance column has values lower than 0'
-    #assert len(df[df['vendor_id'] not in (1, 2)]) == 0, 'Vendor id column has invalid values'
+    
