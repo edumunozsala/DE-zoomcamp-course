@@ -69,6 +69,10 @@ I've also built the pipeline `gcs_parquet_to_bigquery` to move the data in parqu
 
 ![gcs_parquet_to_bigquery Pipeline](./images/green_taxi_etl_trigger_mage.png "GCS parquet to BigQuery Pipeline")
 
+And the components:
+
+![gcs_parquet_to_bigquery Pipeline](./images/gcs_parquet_to_bigquery_components.png "GCS parquet to BigQuery Components")
+
 
 ## Content of this Module
 
