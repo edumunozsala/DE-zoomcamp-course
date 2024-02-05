@@ -35,11 +35,13 @@ The ETL components and the tree structure:
 ![green_taxi_etl Components](./images/green_taxi_etl_pipeline_comp.png "Green Taxi ETL Components")
 
 Components:
-- Data Loader: load_taxi_data.py
-- Transformer: transform_taxi_data.py
-- Data exporter: 
+- Data Loaders: load_taxi_data.py
+- Transformers: transform_taxi_data.py
+- Data exporters: 
     - taxi_data_to_gcs_parquet.py
     - taxi_data_to_postgres.py
+- Pipelines: green_taxi_data with the trigger saved,
+
 
 In the folder **Module02/my-mage-code**, you cand find the Mage blocks I've created to complete the homework and some others I've built to test Mage functionalities (some of them are still in progress).
 
