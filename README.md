@@ -16,6 +16,27 @@ Repo for tasks and homeworks in the Data Engineering Zoomcamp course Cohort 2024
 - Introduction to Terraform
 - Setting up infrastructure on GCP with Terraform
 
+# [Module 2: Workflow Orchestration](Module02/)
+
+- 📯 Intro to Orchestration
+- 🧙‍♂️ Intro to Mage
+- 🐘 ETL: API to Postgres
+- 🤓 ETL: API to GCS
+- 🔍 ETL: GCS to BigQuery
+- 👨‍💻 Parameterized Execution
+- 🤖 Deployment (Optional)
+- 🧱 Advanced Blocks (Optional)
+
+
+# [Module 3: Data Warehouse](Module03/)
+
+1. Data Warehouse
+2. BigQuery
+3. Partitioning and clustering
+4. BigQuery best practices
+5. Internals of BigQuery
+6. BigQuery Machine Learning
+
 ## License
 
 Copyright 2023 Eduardo Muñoz
