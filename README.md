@@ -37,6 +37,17 @@ Repo for tasks and homeworks in the Data Engineering Zoomcamp course Cohort 2024
 5. Internals of BigQuery
 6. BigQuery Machine Learning
 
+# [Workshop dlt](Workshop-dlt/)
+
+​In this hands-on workshop, we’ll learn how to build data ingestion pipelines.
+
+​We’ll cover the following steps:
+
+- ​Extracting data from APIs, or files.
+- ​Normalizing and loading data
+- ​Incremental loading
+- ​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
+
 ## License
 
 Copyright 2023 Eduardo Muñoz
