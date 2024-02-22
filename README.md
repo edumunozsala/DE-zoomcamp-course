@@ -48,6 +48,18 @@ Repo for tasks and homeworks in the Data Engineering Zoomcamp course Cohort 2024
 - ​Incremental loading
 - ​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
 
+# Module 4: Data Analytics
+
+Goal: Transforming the data loaded in DWH into Analytical Views developing a dbt project.
+
+1. Introduction to analytics engineering
+2. What is dbt?
+3. Starting a dbt project
+4. dbt models
+5. Testing and documenting dbt models
+6. Deployment
+7. Visualising the transformed data: Looker Studio
+
 ## License
 
 Copyright 2023 Eduardo Muñoz
