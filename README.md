@@ -48,7 +48,7 @@ Repo for tasks and homeworks in the Data Engineering Zoomcamp course Cohort 2024
 - ​Incremental loading
 - ​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
 
-# Module 4: Data Analytics
+# [Module 4: Data Analytics](Module04/)
 
 Goal: Transforming the data loaded in DWH into Analytical Views developing a dbt project.
 
@@ -59,6 +59,19 @@ Goal: Transforming the data loaded in DWH into Analytical Views developing a dbt
 5. Testing and documenting dbt models
 6. Deployment
 7. Visualising the transformed data: Looker Studio
+
+# [Module 5: Batch Processing](Module05/)
+
+Goal: Run efficient batch processing jobs with Apache Spark
+
+1. Batch processing
+2. What is Spark?
+3. Installation
+4. Spark Dataframes
+5. Spark SQL
+6. Internals: GroupBy y Joins
+7. Spark RDDs
+8. Running Spark in the Cloud
 
 ## License
 
