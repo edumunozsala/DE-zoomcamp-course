@@ -230,38 +230,3 @@ then we can extract the top 3 locations with more pickups within the 17 hours be
 select * from total_pickups_17hr_before ORDER BY cnt DESC LIMIT 3;
 ```
 ![Top 3 total pickups before 17 hours the lastest pickup](images/question3.png)
-
-
-CREATE MATERIALIZED VIEW latest_pickups as
-SELECT
-    tpep_pickup_datetime,
-    pulocationid
-FROM
-    trip_data
-        JOIN taxi_zone
-            ON trip_data.PULocationID = taxi_zone.location_id;
-
-CREATE MATERIALIZED VIEW latest_pickups_17hr_before AS
-    WITH t AS (
-        SELECT MAX(tpep_pickup_datetime) AS latest_pickup_time
-        FROM trip_data
-    )
-    SELECT taxi_zone.Zone as taxi_zone, latest_pickup_time
-    FROM t,
-            trip_data
-    JOIN taxi_zone
-        ON trip_data.PULocationID = taxi_zone.location_id
-    WHERE trip_data.tpep_pickup_datetime = t.latest_dropoff_time;
-
-CREATE MATERIALIZED VIEW latest_pickups_17hr_before AS
-    SELECT
-        count(*) AS cnt
-    FROM
-        airport_pu
-            JOIN latest_jfk_pickup
-                ON airport_pu.tpep_pickup_datetime > latest_jfk_pickup.latest_pickup_time - interval '1 hour'
-            JOIN taxi_zone
-                ON airport_pu.PULocationID = taxi_zone.location_id
-    WHERE
-        taxi_zone.Borough = 'Queens'
-      AND taxi_zone.Zone = 'JFK Airport';
