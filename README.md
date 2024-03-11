@@ -73,6 +73,20 @@ Goal: Run efficient batch processing jobs with Apache Spark
 7. Spark RDDs
 8. Running Spark in the Cloud
 
+# [Workshop: Stream Processing with RisingWave](Workshop-risingwave/)
+
+In this hands-on workshop, we’ll learn how to process real-time streaming data using SQL in RisingWave. The system we’ll use is RisingWave, an open-source SQL database for processing and managing streaming data. You may not feel unfamiliar with RisingWave’s user experience, as it’s fully wire compatible with PostgreSQL.
+
+We’ll cover the following topics in this Workshop:
+
+- Why Stream Processing?
+- Stateless computation (Filters, Projections)
+- Stateful Computation (Aggregations, Joins)
+- Data Ingestion and Delivery
+
+RisingWave in 10 Minutes:
+https://tutorials.risingwave.com/docs/intro
+
 ## License
 
 Copyright 2023 Eduardo Muñoz
