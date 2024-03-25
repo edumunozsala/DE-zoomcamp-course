@@ -43,3 +43,6 @@ terraform.rc
 google-cloud-sdk/
 gcp-credentials/
 my-creds.json
+
+#Ignore Project
+GDELT-Project
