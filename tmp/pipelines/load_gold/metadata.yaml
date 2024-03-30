@@ -32,10 +32,9 @@ retry_config: {}
 run_pipeline_in_one_process: true
 settings:
   triggers: null
-spark_config: {
+spark_config:
   use_custom_session: true
   custom_session_var_name: 'spark'
-}
 tags: []
 type: python
 uuid: load_gold

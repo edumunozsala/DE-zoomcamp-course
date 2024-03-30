@@ -27,7 +27,7 @@ def load_data(*args, **kwargs):
     # Create the spark session, if it doesn't
     spark = (
         SparkSession.builder
-        .appName('pyspark-run-with-gcp-bucket')
+        .appName('spark project')
         .config("spark.jars", "https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop3-latest.jar")
         #.config("spark.sql.repl.eagerEval.enabled", True) 
         .getOrCreate()
@@ -40,16 +40,20 @@ def load_data(*args, **kwargs):
     kwargs['context']['spark'] = spark
 
     # Set the GCS location to save the data
-    bucket_name="mage-dezoomcamp-ems"
-    project_id="banded-pad-411315"
+    #bucket_name="mage-dezoomcamp-ems"
+    bucket_name=kwargs['bucket_name']
+    #project_id="banded-pad-411315"
+    project_id=kwargs['project_id']
+    #table_name="events"
+    table_name=kwargs['table_name']
 
-    table_name="events"
-    source_root_path= f'gs://{bucket_name}/GDELT-Project/bronze/{table_name}'
+    source_root_path= f'gs://{bucket_name}/{kwargs['path']}/*.CSV'
     dest_root_path= f'gs://{bucket_name}/GDELT-Project/silver/{table_name}'
     
     #spark.sparkContext.addFile(url)
     # Read the csv data and save it into GCS in parquet format
     df = (spark.read
+        .schema(schema)
         .format("parquet")
         .load(source_root_path)
         #.withColumn("partition_date", F.to_date(F.col("SQLDATE").cast("string"), "yyyyMMdd"))

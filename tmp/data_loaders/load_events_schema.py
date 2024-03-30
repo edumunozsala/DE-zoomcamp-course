@@ -16,12 +16,12 @@ def load_data(*args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
-    url='https://raw.githubusercontent.com/linwoodc3/gdelt2HeaderRows/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv'
+    #url='https://raw.githubusercontent.com/linwoodc3/gdelt2HeaderRows/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv'
     #'https://github.com/linwoodc3/gdelt2HeaderRows/blob/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv'
         # Download the CSV file from the URL
     mapping = {'INTEGER': 'Integer', 'STRING':'String', 'FLOAT':'Double'}
 
-    response = requests.get(url)
+    response = requests.get(kwargs['schema_url'])
     if response.status_code == 200:
             # Read the content of the response as a string
             csv_content = response.content.decode('utf-8')
@@ -34,11 +34,6 @@ def load_data(*args, **kwargs):
             #print(df)
             df = df.drop(['Empty','Description'],axis=1)
             #print(df)
-            """
-            df_list = df.to_records(index=False).tolist() 
-            for dtype in df_list[0:2]:
-                print(dtype)
-            """
             
             return df
     else:

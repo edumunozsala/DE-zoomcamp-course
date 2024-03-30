@@ -1,77 +1,65 @@
 blocks:
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    file_source:
-      path: data_loaders/load_events_schema.py
+  configuration: {}
   downstream_blocks:
-  - export_bronze
+  - export_gold_bq
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: load_events_schema
+  name: min_max_week
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: load_events_schema
+  uuid: min_max_week
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    file_source:
-      path: data_exporters/export_bronze.py
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: export_bronze
+  name: export_gold_bq
   retry_config: null
   status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - load_events_schema
-  uuid: export_bronze
+  - min_max_week
+  uuid: export_gold_bq
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-03-24 17:52:18.429724+00:00'
+created_at: '2024-03-26 19:26:28.313237+00:00'
 data_integration: null
 description: null
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: load_silver
+name: load_gold_bq
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
-run_pipeline_in_one_process: false
+run_pipeline_in_one_process: true
 settings:
   triggers: null
 spark_config:
-  app_name: spark project
   custom_session_var_name: spark
-  executor_env: {}
-  others: {}
-  spark_home: null
-  spark_jars: []
-  spark_master: local
   use_custom_session: true
 tags: []
 type: python
-uuid: load_silver
+uuid: load_gold_bq
 variables:
   bucket_name: mage-dezoomcamp-ems
-  days_to_collect: 45
-  dest_path: GDELT-Project/silver
-  path: GDELT-Project/bronze/csv
+  dataset: GDELT_test
+  path: GDELT-Project/silver
   project_id: banded-pad-411315
-  schema_url: https://raw.githubusercontent.com/linwoodc3/gdelt2HeaderRows/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv
   table_name: events
 variables_dir: /root/.mage_data/GDELT-events-analysis
 widgets: []

@@ -37,7 +37,7 @@ def export_data(data, *args, **kwargs):
     # Create the spark session, if it doesn't
     spark = (
         SparkSession.builder
-        .appName('pyspark-run-with-gcp-bucket')
+        .appName('spark project')
         .config("spark.jars", "https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop3-latest.jar")
         #.config("spark.sql.repl.eagerEval.enabled", True) 
         .getOrCreate()
@@ -50,13 +50,13 @@ def export_data(data, *args, **kwargs):
     kwargs['context']['spark'] = spark
 
     # Set the GCS location to save the data
-    bucket_name="mage-dezoomcamp-ems"
-    project_id="banded-pad-411315"
+    bucket_name=kwargs['bucket_name']#"mage-dezoomcamp-ems"
+    project_id=kwargs['project_id']#"banded-pad-411315"
 
-    table_name="events"
-    source_files= f'gs://{bucket_name}/GDELT-Project/bronze/csv/*.CSV'
-
-    root_path= f'gs://{bucket_name}/GDELT-Project/bronze/{table_name}'
+    table_name=kwargs['table_name']#"events"
+    source_files= f'gs://{bucket_name}/{kwargs["path"]}/*.csv'
+    print(source_files)
+    root_path= f'gs://{bucket_name}/{kwargs["dest_path"]}/{table_name}'
     print(root_path)
     
     # Set the url where the csv data is
@@ -67,18 +67,67 @@ def export_data(data, *args, **kwargs):
     #spark.sparkContext.addFile(url)
     # Read the csv data and save it into GCS in parquet format
     (spark.read
-        .option("inferSchema", "true")
         .schema(schema)
-        #.csv(SparkFiles.get("20240324160000.export.CSV"), schema=schema)
         .csv(source_files, sep="\t")
-        #.load()
-        #.select("PassengerId","Survived","Pclass","Name","Sex","Age")
         .withColumn("week", F.weekofyear(F.to_date("SQLDATE","yyyyMMdd")))
-        #.select("SQLDATE","week")
+        .select("GLOBALEVENTID",
+            "SQLDATE",
+            "MonthYear",
+            "Year",
+            "FractionDate",
+            "Actor1Code",
+            "Actor1Name",
+            "Actor1CountryCode",
+            "Actor1KnownGroupCode",
+            "Actor1EthnicCode",
+            "Actor1Religion1Code",
+            "Actor1Type1Code",
+            "Actor1Type2Code",
+            "Actor1Type3Code",
+            "Actor2Code",
+            "Actor2Name",
+            "Actor2CountryCode",
+            "Actor2KnownGroupCode",
+            "Actor2EthnicCode",
+            "Actor2Religion1Code",
+            "Actor2Type1Code",
+            "Actor2Type2Code",
+            "Actor2Type3Code",
+            "IsRootEvent",
+            "EventCode",
+            "EventBaseCode",
+            "EventRootCode",
+            "NumMentions",
+            "NumSources",
+            "NumArticles",
+            "AvgTone",
+            "Actor1Geo_Type",
+            "Actor1Geo_FullName",
+            "Actor1Geo_CountryCode",
+            "Actor1Geo_Lat",
+            "Actor1Geo_Long",
+            "Actor2Geo_Type",
+            "Actor2Geo_FullName",
+            "Actor2Geo_CountryCode",
+            "Actor2Geo_Lat",
+            "Actor2Geo_Long",
+            "Actor2Geo_FeatureID",
+            "ActionGeo_Type",
+            "ActionGeo_FullName",
+            "ActionGeo_CountryCode",
+            "ActionGeo_Lat",
+            "ActionGeo_Long",
+            "ActionGeo_FeatureID",
+            "DATEADDED",
+            "SOURCEURL",
+            "week"
+        )
+        .where(F.datediff(F.to_date(F.current_timestamp()), F.to_date("SQLDATE","yyyyMMdd")) <=kwargs['days_to_collect'])
+        .repartition("week")
         .write
         .mode("overwrite")
         .format("parquet")
-        .partitionBy("Year", "week")
+        .partitionBy("week")
         .save(root_path)
     )
     #print(df.show(3))
