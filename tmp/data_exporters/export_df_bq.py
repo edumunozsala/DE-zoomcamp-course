@@ -3,6 +3,7 @@ from mage_ai.io.bigquery import BigQuery
 from mage_ai.io.config import ConfigFileLoader
 from pandas import DataFrame
 from os import path
+import os
 
 if 'data_exporter' not in globals():
     from mage_ai.data_preparation.decorators import data_exporter
@@ -16,8 +17,10 @@ def export_data_to_big_query(df: DataFrame, **kwargs) -> None:
 
     Docs: https://docs.mage.ai/design/data-loading#bigquery
     """
-    table_id = f'{kwargs["project_id"]}.{kwargs["dataset"]}.lookups'
+    table_id = f'{os.environ["PROJECT_ID"]}.{os.environ["DATASET"]}.lookups'
+    #table_id = f'{project_id}.{dataset}.lookups'
     print(table_id)
+
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
