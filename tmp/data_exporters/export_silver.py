@@ -133,14 +133,4 @@ def export_data(data, *args, **kwargs):
         .save(root_path)
     )
     #print(df.show(3))
-    # Trigger the pipeline to move to gold
-    trigger_pipeline(
-    'load_gold_bq',
-    variables={},
-    check_status=False,
-    error_on_failure=False,
-    poll_interval=60,
-    poll_timeout=3600,
-    schedule_name=None,  # Enter a unique name to create a new trigger each time
-    verbose=True,
-)
+
