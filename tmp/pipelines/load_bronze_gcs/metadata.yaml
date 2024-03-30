@@ -2,7 +2,8 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
-  downstream_blocks: []
+  downstream_blocks:
+  - run_to_silver
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -14,6 +15,22 @@ blocks:
   type: data_loader
   upstream_blocks: []
   uuid: load_zip_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: run_to_silver
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_zip_gcs
+  uuid: run_to_silver
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -29,7 +46,7 @@ name: load_bronze_gcs
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
-run_pipeline_in_one_process: true
+run_pipeline_in_one_process: false
 settings:
   triggers: null
 spark_config:
@@ -47,7 +64,7 @@ uuid: load_bronze_gcs
 variables:
   bucket_name: mage-dezoomcamp-ems
   date_to_download: '202403'
-  days_to_collect: 45
+  days_to_collect: 10
   path: GDELT-Project/bronze/csv/
   project_id: banded-pad-411315
   url_file_list: http://data.gdeltproject.org/gdeltv2/masterfilelist.txt

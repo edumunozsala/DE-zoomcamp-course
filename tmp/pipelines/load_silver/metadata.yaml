@@ -5,7 +5,7 @@ blocks:
     file_source:
       path: data_loaders/load_events_schema.py
   downstream_blocks:
-  - export_bronze
+  - export_silver
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -21,20 +21,20 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: data_exporters/export_bronze.py
+      path: data_exporters/export_silver.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: export_bronze
+  name: export_silver
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
   - load_events_schema
-  uuid: export_bronze
+  uuid: export_silver
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
