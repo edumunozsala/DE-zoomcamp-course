@@ -45,4 +45,4 @@ gcp-credentials/
 my-creds.json
 
 #Ignore Project
-GDELT-Project
+#GDELT-Project
