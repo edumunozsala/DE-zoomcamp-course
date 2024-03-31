@@ -74,8 +74,6 @@ type: python
 uuid: load_lookups
 variables:
   bronze_object: GDELT-Project/bronze/lookups/codes.csv
-  dataset: '{{ env_var(''DATASET'') }}'
-  project_id: '{{ env_var(''PROJECT_ID'') }}'
   silver_object: GDELT-Project/silver/lookups/codes.csv
-variables_dir: /root/.mage_data/GDELT-events-analysis
+variables_dir: /home/src/mage_data/GDELT-events-analysis
 widgets: []

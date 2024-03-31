@@ -73,10 +73,7 @@ tags: []
 type: python
 uuid: load_gold_bq
 variables:
-  bucket_name: mage-dezoomcamp-ems
-  dataset: GDELT_test
   path: GDELT-Project/silver
-  project_id: banded-pad-411315
   table_name: events
 variables_dir: /home/src/mage_data/GDELT-events-analysis
 widgets: []

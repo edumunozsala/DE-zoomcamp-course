@@ -30,7 +30,7 @@ def export_data(data, *args, **kwargs):
     print(source_root_path)
     
     dataset_name = os.environ['DATASET']
-    temp_bucket_name = "gdelttesttempbucket"
+    temp_bucket_name = os.environ['TEMP_BUCKET_NAME']
 
     # Set the url where the csv data is
     #url = "https://gdelt-open-data.s3.amazonaws.com/v2/events/20240318230000.export.csv"

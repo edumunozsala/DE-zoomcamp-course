@@ -71,18 +71,16 @@ run_pipeline_in_one_process: false
 settings:
   triggers: null
 spark_config:
+  custom_session_var_name: spark
   use_custom_session: true
-  custom_session_var_name: 'spark'
 tags: []
 type: python
 uuid: load_silver
 variables:
-  bucket_name: mage-dezoomcamp-ems
-  days_to_collect: 45
+  days_to_collect: 10
   dest_path: GDELT-Project/silver
   path: GDELT-Project/bronze/csv
-  project_id: banded-pad-411315
   schema_url: https://raw.githubusercontent.com/linwoodc3/gdelt2HeaderRows/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv
   table_name: events
-variables_dir: /root/.mage_data/GDELT-events-analysis
+variables_dir: /home/src/mage_data/GDELT-events-analysis
 widgets: []

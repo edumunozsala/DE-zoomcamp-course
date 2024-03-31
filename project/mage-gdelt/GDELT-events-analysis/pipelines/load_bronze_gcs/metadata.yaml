@@ -50,17 +50,14 @@ run_pipeline_in_one_process: false
 settings:
   triggers: null
 spark_config:
+  custom_session_var_name: spark
   use_custom_session: true
-  custom_session_var_name: 'spark'
 tags: []
 type: python
 uuid: load_bronze_gcs
 variables:
-  bucket_name: mage-dezoomcamp-ems
-  date_to_download: '202403'
   days_to_collect: 10
   path: GDELT-Project/bronze/csv/
-  project_id: banded-pad-411315
   url_file_list: http://data.gdeltproject.org/gdeltv2/masterfilelist.txt
-variables_dir: /root/.mage_data/GDELT-events-analysis
+variables_dir: /home/src/mage_data/GDELT-events-analysis
 widgets: []

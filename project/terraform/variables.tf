@@ -35,6 +35,12 @@ variable "gdelt-project-data-bucket"{
   default     = "gdelt-project-events-datalake"
 }
 
+variable "gdelt-project-temp-bucket"{
+  description = "GDELT Project Bucket"
+  #Update the below to a unique bucket name
+  default     = "gdelt-project-temp-datalake"
+}
+
 variable "gcs_storage_class" {
   description = "Bucket Storage Class"
   default     = "STANDARD"
