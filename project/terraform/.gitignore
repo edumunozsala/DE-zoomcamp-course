@@ -1,9 +1,3 @@
-.ipynb_checkpoints/
-ny_taxi_postgres_data/
-data/
-*.csv
-*.gz
-
 # Local .terraform directories
 **/.terraform/*
 
@@ -39,12 +33,24 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# GCP
-google-cloud-sdk/
-gcp-credentials/
-my-creds.json
-*credentials.json
+# This lock file is specific to each user's environment and should not be committed.
+.terraform.lock.hcl
 
-#Ignore Project
-#GDELT-Project
-#project/
+# Ignore Terraform plan output
+*.tfplan
+.tfplan.
+
+# Ignore IDE and editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore log files and directories
+*.log
+*.tflog
+
+# These might contain sensitive environment variables.
+.env
+
+*.json
