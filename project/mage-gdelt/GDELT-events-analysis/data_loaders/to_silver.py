@@ -42,9 +42,6 @@ def load_data(*args, **kwargs):
     # Set the GCS location to save the data
     #bucket_name="mage-dezoomcamp-ems"
     bucket_name=kwargs['bucket_name']
-    #project_id="banded-pad-411315"
-    project_id=kwargs['project_id']
-    #table_name="events"
     table_name=kwargs['table_name']
 
     source_root_path= f'gs://{bucket_name}/{kwargs['path']}/*.CSV'
@@ -115,8 +112,6 @@ def load_data(*args, **kwargs):
     .partitionBy("Year", "week")
     .save(dest_root_path)
     )    
-
-    #print(df.count())
 
     return {}
 

@@ -31,9 +31,7 @@ def load_data(*args, **kwargs):
             # Convert type names to pyspark datatypes
             df['dataType'] = df['dataType'].map(mapping)
             # Optionally, you can print the DataFrame
-            #print(df)
             df = df.drop(['Empty','Description'],axis=1)
-            #print(df)
             
             return df
     else:

@@ -77,7 +77,6 @@ tags: []
 type: python
 uuid: load_silver
 variables:
-  days_to_collect: 10
   dest_path: GDELT-Project/silver
   path: GDELT-Project/bronze/csv
   schema_url: https://raw.githubusercontent.com/linwoodc3/gdelt2HeaderRows/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv

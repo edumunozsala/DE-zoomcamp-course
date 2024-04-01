@@ -10,12 +10,12 @@ blocks:
   language: python
   name: load_zip_gcs
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_zip_gcs
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -56,7 +56,7 @@ tags: []
 type: python
 uuid: load_bronze_gcs
 variables:
-  days_to_collect: 10
+  csv_per_file: 30
   path: GDELT-Project/bronze/csv/
   url_file_list: http://data.gdeltproject.org/gdeltv2/masterfilelist.txt
 variables_dir: /home/src/mage_data/GDELT-events-analysis

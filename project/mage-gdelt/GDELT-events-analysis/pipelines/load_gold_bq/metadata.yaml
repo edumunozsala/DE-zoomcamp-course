@@ -26,13 +26,13 @@ blocks:
   language: python
   name: export_gold_bq
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
   - min_max_week
   uuid: export_gold_bq
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []

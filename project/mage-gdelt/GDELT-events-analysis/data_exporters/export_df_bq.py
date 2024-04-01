@@ -18,7 +18,6 @@ def export_data_to_big_query(df: DataFrame, **kwargs) -> None:
     Docs: https://docs.mage.ai/design/data-loading#bigquery
     """
     table_id = f'{os.environ["PROJECT_ID"]}.{os.environ["DATASET"]}.lookups'
-    #table_id = f'{project_id}.{dataset}.lookups'
     print(table_id)
 
     config_path = path.join(get_repo_path(), 'io_config.yaml')

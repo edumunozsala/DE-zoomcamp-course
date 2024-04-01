@@ -32,13 +32,10 @@ def load_data(*args, **kwargs):
         table= url.split("CAMEO.")[1].split(".txt")[0]
         df= pd.read_csv(url, sep='\t', header=0, names=['code','label'])
         df['table']= table
-        #df.columns=['table','code','label']
         print(df.shape)
         df_lookups = pd.concat([df_lookups, df], axis=0, ignore_index=True)
         print(df_lookups.shape)
         #print(df_lookups.head(3))
-    #url_file_list=kwargs['url_file_list']
-    #df = pd.read_csv(url_file_list, sep=' ', header=None)
     return df_lookups
 
 

@@ -5,8 +5,6 @@ from pyspark.sql import types
 from pyspark.sql.types import *
 from pyspark.sql import functions as F
 
-import zipfile
-
 import os
 
 from mage_ai.orchestration.triggers.api import trigger_pipeline
@@ -36,6 +34,13 @@ def export_data(data, *args, **kwargs):
     fields = [types.StructField(dtype[0], globals()[f'{dtype[1]}Type']()) for dtype in dtypes]
     schema = StructType(fields)
     print(schema)
+    # Extract days to collect data
+    # IMPORTANT: We include a limit of 90 days,
+    # You can remove or change it
+    days_to_collect=int(os.environ['DAYS_TO_COLLECT'])
+    if days_to_collect>90:
+        days_to_collect=90
+
     # Create the spark session, if it doesn't
     spark = (
         SparkSession.builder
@@ -124,7 +129,7 @@ def export_data(data, *args, **kwargs):
             "SOURCEURL",
             "week"
         )
-        .where(F.datediff(F.to_date(F.current_timestamp()), F.to_date("SQLDATE","yyyyMMdd")) <=kwargs['days_to_collect'])
+        .where(F.datediff(F.to_date(F.current_timestamp()), F.to_date("SQLDATE","yyyyMMdd")) <=days_to_collect)
         .repartition("week")
         .write
         .mode("overwrite")

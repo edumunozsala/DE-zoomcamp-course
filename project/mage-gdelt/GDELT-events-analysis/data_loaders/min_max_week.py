@@ -51,12 +51,6 @@ def load_data(*args, **kwargs):
     source_root_path= f'gs://{bucket_name}/{kwargs["path"]}/{table_name}'
     print(source_root_path)
     
-    # Set the url where the csv data is
-    #url = "https://gdelt-open-data.s3.amazonaws.com/v2/events/20240318230000.export.csv"
-    #url = "https://gdelt-open-data.s3.amazonaws.com/v2/events/20240324161500.gkg.csv"
-    #url="/home/src/extracted/20240324160000.export.CSV"
-
-    #spark.sparkContext.addFile(url)
     # Read the csv data and save it into GCS in parquet format
     df_weeks= (
         spark.read

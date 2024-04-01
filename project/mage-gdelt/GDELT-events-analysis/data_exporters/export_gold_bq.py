@@ -47,11 +47,12 @@ def export_data(data, *args, **kwargs):
         .format('bigquery')
         .option('parentProject', project_id)
         .option("temporaryGcsBucket", temp_bucket_name)
-        .mode("overwrite")
         .option("partitionField", "week")
         .option("partitionRangeStart", data['min'][0])
         .option("partitionRangeEnd", data['max'][0])
         .option("partitionRangeInterval", 1)
+        .option("spark.sql.sources.partitionOverwriteMode", "STATIC")
+        .mode("overwrite")
         .save(f"{project_id}.{dataset_name}.{table_name}")
     )
 

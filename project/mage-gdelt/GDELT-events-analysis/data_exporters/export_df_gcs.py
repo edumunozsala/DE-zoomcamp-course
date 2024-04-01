@@ -20,7 +20,6 @@ def export_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
-    #bucket_name = 'mage-dezoomcamp-ems'
     bucket_name = os.environ['BUCKET_NAME']
     bronze_object_key = kwargs['bronze_object']
     silver_object_key = kwargs['silver_object']

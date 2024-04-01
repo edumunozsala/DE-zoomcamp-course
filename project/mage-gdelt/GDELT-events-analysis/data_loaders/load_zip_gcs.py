@@ -9,7 +9,6 @@ import pandas as pd
 import datetime
 import shutil
 
-#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/src/personal-gcp.json"
 
 if 'data_loader' not in globals():
     from mage_ai.data_preparation.decorators import data_loader
@@ -26,16 +25,15 @@ def get_dates(n):
     return date_range    # return [today - datetime.timedelta(days=i) for i in range(n)]
 
 
-def download_and_upload_to_gcs(urls, path=None, bucket=None, client=None):
+def download_and_upload_to_gcs(urls, csv_per_file=20, path=None, bucket=None, client=None):
     # Download the zip file from the URL
-    #dest_file= BytesIO()
     files_included=0
     
     for url in urls:
         # Open a new file
         #print(url)
         day=url.split("/")[-1].split(".")[0]
-        if files_included == 20:
+        if files_included == csv_per_file:
             # SAve the file to disk
                         # SAve to disk
             filename_to_save=day_ini+"_"+url.split("/")[-1].split(".")[0]+".csv"
@@ -99,8 +97,14 @@ def load_data(*args, **kwargs):
     df.columns = ['ID', 'md5sum', 'file_name']
     # REmove some rows with null values
     df = df.dropna()
-    # Select the files in 2024-03-01
-    date_range=get_dates(kwargs['days_to_collect'])
+    # Extract days to collect data
+    # IMPORTANT: We include a limit of 90 days,
+    # You can remove or change it
+    days_to_collect=int(os.environ['DAYS_TO_COLLECT'])
+    if days_to_collect>90:
+        days_to_collect=90
+
+    date_range=get_dates(days_to_collect)
     files=[]
     for day in date_range:
         #df_files = df[(df['file_name'].str.contains(month_to_download) & (df['file_name'].str.contains('export')))]
@@ -127,6 +131,6 @@ def load_data(*args, **kwargs):
     #url="http://data.gdeltproject.org/gdeltv2/20240324161500.export.CSV.zip"
     #for url in zip_urls:
     print("Files:", len(files))
-    download_and_upload_to_gcs(files, path, bucket, client)
+    download_and_upload_to_gcs(files, int(kwargs['csv_per_file']), path, bucket, client)
 
     return {}
