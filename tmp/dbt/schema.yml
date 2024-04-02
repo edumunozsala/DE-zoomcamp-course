@@ -1,0 +1,34 @@
+
+version: 2
+
+models:
+  - name: stg_actor_type
+    description: "A starter dbt model"
+    columns:
+      - name: type_code
+        description: "Code of the type"
+        tests:
+          - unique
+          - not_null
+      - name: type_name
+        description: "Type name or description"
+        tests:
+          - not_null
+
+  - name: stg_events_types
+    description: "A starter dbt model"
+    columns:
+      - name: week
+        description: "Week of the events"
+        tests:
+          - not_null
+      - name: SQLDATE
+        description: "Date of the events"
+        tests:
+          - not_null
+      - name: source_type
+        description: "Type of the source of the event"
+        tests:
+          - not_null
+      - name: dest_type
+        description: "Type of the destination of the event"
