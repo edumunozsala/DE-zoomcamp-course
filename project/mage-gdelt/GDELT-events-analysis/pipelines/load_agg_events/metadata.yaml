@@ -41,6 +41,48 @@ blocks:
   type: dbt
   upstream_blocks: []
   uuid: dbt/gdelt_events/models/staging/stg_events_types
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/gdelt_events
+    file_path: dbt/gdelt_events/models/staging/stg_event_codes.sql
+    file_source:
+      path: dbt/gdelt_events/models/staging/stg_event_codes.sql
+      project_path: dbt/gdelt_events
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/gdelt_events/models/staging/stg_event_codes
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/gdelt_events/models/staging/stg_event_codes
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/gdelt_events
+    file_path: dbt/gdelt_events/models/staging/stg_events_by_code.sql
+    file_source:
+      path: dbt/gdelt_events/models/staging/stg_events_by_code.sql
+      project_path: dbt/gdelt_events
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/gdelt_events/models/staging/stg_events_by_code
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/gdelt_events/models/staging/stg_events_by_code
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
