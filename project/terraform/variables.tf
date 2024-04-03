@@ -5,7 +5,6 @@ variable "credentials" {
   #saved there as my-creds.json you could use default = "./keys/my-creds.json"
 }
 
-
 variable "project" {
   description = "Project"
   default     = "gdelt-project-data"

@@ -67,3 +67,4 @@ resource "google_bigquery_dataset" "dataset" {
   delete_contents_on_destroy=true
 }
 
+
