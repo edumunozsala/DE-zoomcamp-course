@@ -318,7 +318,7 @@ green_stream = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "localhost:9092") \
-    .option("subscribe", "green-trips") \
+    .option("subscribe", "green-rides-201910") \
     .option("startingOffsets", "earliest") \
     .load()
 ```
